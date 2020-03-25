@@ -20,7 +20,9 @@ jobs:
       - name: Checkout Sources
         uses: actions/checkout@v2
         with:
+          repository: michael-poehnl/rmw_iceoryx
           path: src/rmw_iceoryx
+          ref: iox-#70-adaptations
       - name: Checkout Iceoryx
         uses: actions/checkout@v2
         with:
