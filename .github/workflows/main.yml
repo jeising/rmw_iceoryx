@@ -25,6 +25,6 @@ jobs:
           repository: eclipse/iceoryx
           path: src/iceoryx
           ref: master
-      - run: colcon build
-      - run: colcon test
-      - run: colcon test-results --verbose
+      - run: "source /opt/ros/eloquent/setup.bash && colcon build"
+      - run: "source /opt/ros/eloquent/setup.bash && colcon test"
+      - run: "source /opt/ros/eloquent/setup.bash && colcon test-results --verbose"
