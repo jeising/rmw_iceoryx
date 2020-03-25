@@ -12,4 +12,16 @@ jobs:
     steps:
       - name: Setup ROS
         uses: ros-tooling/setup-ros@0.0.11
-      - run: vcs --help
+      - name: Checkout Sources
+        uses: actions/checkout@v2
+        with:
+          path: src/rmw_iceoryx
+      - name: Checkout Iceoryx
+        uses: actions/checkout@v2
+        with:
+          repository: eclipse/iceoryx
+          path: src/iceoryx
+          ref: master
+      - run: colcon build
+      - run: colcon test
+      - run: colcon test-results --verbose
