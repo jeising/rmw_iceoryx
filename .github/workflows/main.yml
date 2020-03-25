@@ -10,19 +10,18 @@ jobs:
       matrix:
           # os: [macOS-latest, ubuntu-18.04, windows-latest]
           os: [ubuntu-18.04]
+          ros: [eloquent]
     steps:
       - name: Setup ROS
         uses: ros-tooling/setup-ros@0.0.11
         with:
-          required-ros-distributions: eloquent
+          required-ros-distributions: ${{ matrix.ros }}
       - name: Install Iceoryx Dependencies
         run: sudo apt-get update && sudo apt-get install -y cmake libacl1-dev libncurses5-dev pkg-config
       - name: Checkout Sources
         uses: actions/checkout@v2
         with:
-          repository: michael-poehnl/rmw_iceoryx
           path: src/rmw_iceoryx
-          ref: iox-#70-adaptations
       - name: Checkout Iceoryx
         uses: actions/checkout@v2
         with:
