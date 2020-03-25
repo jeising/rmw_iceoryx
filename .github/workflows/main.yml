@@ -31,4 +31,4 @@ jobs:
           ref: master
       - run: "source /opt/ros/eloquent/setup.bash && colcon build"
       - run: "source /opt/ros/eloquent/setup.bash && colcon test"
-      - run: "source /opt/ros/eloquent/setup.bash && colcon test-results --verbose"
+      - run: "source /opt/ros/eloquent/setup.bash && colcon test-result --verbose"
