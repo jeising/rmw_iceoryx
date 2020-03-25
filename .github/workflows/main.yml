@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Setup ROS
         uses: ros-tooling/setup-ros@0.0.11
+        with:
+          required-ros-distributions: eloquent
       - name: Install Iceoryx Dependencies
         run: sudo apt-get update && sudo apt-get install -y cmake libacl1-dev libncurses5-dev pkg-config
       - name: Checkout Sources
