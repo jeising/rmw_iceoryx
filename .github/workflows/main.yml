@@ -16,6 +16,10 @@ jobs:
         uses: ros-tooling/setup-ros@0.0.11
         with:
           required-ros-distributions: ${{ matrix.ros }}
+        if: ${{ matrix.ros }} != "foxy"
+      - name: Setup ROS
+        uses: ros-tooling/setup-ros@0.0.11
+        if: ${{ matrix.ros }} == "foxy"
         # To build against multiple OSs dependencies installation needs to be OS specific
       - name: Install Iceoryx Dependencies
         run: sudo apt-get update && sudo apt-get install -y cmake libacl1-dev libncurses5-dev pkg-config
