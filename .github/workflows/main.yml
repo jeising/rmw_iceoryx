@@ -52,17 +52,21 @@ jobs:
       - name: Checkout Sources
         uses: actions/checkout@v2
         with:
-          path: src/rmw_iceoryx
+          path: rmw_iceoryx
       - name: Checkout Iceoryx
         uses: actions/checkout@v2
         with:
           repository: eclipse/iceoryx
-          path: src/iceoryx
+          path: iceoryx
           ref: master
+      - name: ROS CI
+        uses: ros-tooling/action-ros-ci@0.0.13
+        with:
+          package-name: rmw_iceoryx_cpp iceoryx_ros2_bridge
       - name: Trigger Build
-        run: "source /opt/ros/${{ matrix.ros }}/setup.bash && colcon build"
+        run: "source ${{ ros-workspace-directory-name }}/install/setup.bash && colcon build"
       - name: Execute Tests
-        run: "source /opt/ros/${{ matrix.ros }}/setup.bash && colcon test"
+        run: "source ${{ ros-workspace-directory-name }}/install/setup.bash && colcon test"
       - name: Show Test Results
-        run: "source /opt/ros/${{ matrix.ros }}/setup.bash && colcon test-result --verbose"
+        run: "source ${{ros-workspace-directory-name }}/install/setup.bash && colcon test-result --verbose"
 
