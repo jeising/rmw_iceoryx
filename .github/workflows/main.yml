@@ -64,9 +64,9 @@ jobs:
         with:
           package-name: rmw_iceoryx_cpp iceoryx_ros2_bridge
       - name: Trigger Build
-        run: "source ${{ ros-workspace-directory-name }}/install/setup.bash && colcon build"
+        run: "source ${{ outputs.ros-workspace-directory-name }}/install/setup.bash && colcon build"
       - name: Execute Tests
-        run: "source ${{ ros-workspace-directory-name }}/install/setup.bash && colcon test"
+        run: "source ${{ outputs.ros-workspace-directory-name }}/install/setup.bash && colcon test"
       - name: Show Test Results
-        run: "source ${{ros-workspace-directory-name }}/install/setup.bash && colcon test-result --verbose"
+        run: "source ${{ outputs.ros-workspace-directory-name }}/install/setup.bash && colcon test-result --verbose"
 
