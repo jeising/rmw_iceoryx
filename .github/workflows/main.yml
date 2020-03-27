@@ -63,10 +63,10 @@ jobs:
         uses: ros-tooling/action-ros-ci@0.0.13
         with:
           package-name: rmw_iceoryx_cpp iceoryx_ros2_bridge
-      - name: Trigger Build
-        run: "source ${{ outputs.ros-workspace-directory-name }}/install/setup.bash && colcon build"
-      - name: Execute Tests
-        run: "source ${{ outputs.ros-workspace-directory-name }}/install/setup.bash && colcon test"
-      - name: Show Test Results
-        run: "source ${{ outputs.ros-workspace-directory-name }}/install/setup.bash && colcon test-result --verbose"
+#      - name: Trigger Build
+#        run: "source ${{ outputs.ros-workspace-directory-name }}/install/setup.bash && colcon build"
+#      - name: Execute Tests
+#        run: "source ${{ outputs.ros-workspace-directory-name }}/install/setup.bash && colcon test"
+#      - name: Show Test Results
+#        run: "source ${{ outputs.ros-workspace-directory-name }}/install/setup.bash && colcon test-result --verbose"
 
